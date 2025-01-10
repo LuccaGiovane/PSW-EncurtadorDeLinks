@@ -35,5 +35,5 @@ def create(request, link_schema: LinkSchema):
 def redirect_link(request, token):
     link = get_object_or_404(Links, token=token, active=True)
 
-    if Link.expired():
+    if link.expired():
         return 404, {'error': 'Link expirado'}
